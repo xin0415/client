@@ -10,7 +10,8 @@ import { FormBuilder, FormGroup } from "@angular/forms";
 export class FormComponent implements OnInit{
     tempForm!:FormGroup;
     supervisors!:string[];
-    error:string=""
+    error:string="";
+    success!:string;
     constructor(private ms:ManagementService, private fb:FormBuilder){}
     ngOnInit(): void {
         this.ms.getSupervisors().subscribe(s=>{
@@ -29,9 +30,20 @@ export class FormComponent implements OnInit{
     submit(){
         this.ms.addSubmit(this.tempForm.value).subscribe(res=>{
             if(res.status!=200){
-                this.error=res.message
+                this.error=res.message;
+                this.success="";
             }else{
-                this.error=""
+                this.error="";
+                this.success=res.message;
+                this.tempForm=this.fb.group({
+                    firstName:'',
+                    lastName:'',
+                    emailChecked:false,
+                    email:'',
+                    phoneChecked:false,
+                    phoneNumber:'',
+                    supervisor:''
+                })
             }
         })
     }
