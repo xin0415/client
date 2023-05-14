@@ -1,27 +1,16 @@
-# Client
+Setup the cors on port 4200 in spring boot. Make sure angular run on port 4200
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.1.
+## Install modules
+use "npm install" to install the node_modules
 
-## Development server
+## run the frontend
+use "ng serve" to run the frontend
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## form folder
+This contains the form component that required in document
 
-## Code scaffolding
+## shared folder
+This contains the models template and services. In models folder, it contains the interface that use to define the shape of an object. Response.ts is the shape of response that will receive from backend. temp.ts is the shape of the field that will send to the backend. Services folder contain the service file have the logic that used to interact with backend API
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## app.module.ts
+in the app.module.ts add modules that need in the application. HttpClientModule is used for HTTP requests and communicate with backend API. ReactiveFormsModule is enable to use reactive forms in angular.
