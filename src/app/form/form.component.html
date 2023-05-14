@@ -1,0 +1,40 @@
+<div style="align-items: center;">
+    <h1 style="display: flex; justify-content: center;">Notification Form</h1>
+    <form [formGroup]="tempForm" (ngSubmit)="submit()" class="formstyle">
+        <div style="display: flex; padding-bottom: 20px;">
+            <div class="tagstyle">
+                <span>First Name</span>
+                <input type="text" placeholder="First Name" matInput required formControlName="firstName">
+            </div>
+            <div class="tagstyle">
+                <span>Last Name</span>
+                <input type="text" placeholder="Last Name" required formControlName="lastName">
+            </div>
+        </div>
+        <div style="padding-bottom: 20px;">
+            <h3 style="margin:0">How would you prefer to be notified?</h3>
+            <div style="display: flex;">
+                <div class="tagstyle">
+                    <mat-checkbox formControlName="emailChecked">Email</mat-checkbox>
+                    <input type="text" placeholder="Email" formControlName="email">
+                </div>
+                <div class="tagstyle">
+                    <mat-checkbox formControlName="phoneChecked">Phone Number</mat-checkbox>
+                    <input type="text" placeholder="Phone Number" formControlName="phoneNumber">
+                </div>
+            </div>
+        </div>
+        
+        <div style="padding-bottom: 20px;">
+            <p>Supervisor</p>
+            <select formControlName="supervisor">
+                <option value="">Select...</option>
+                <option *ngFor="let supervisor of supervisors" [value]="supervisor"> {{supervisor}} </option>
+            </select>
+        </div>
+        <mat-error>{{error}}</mat-error>
+        <div>
+            <input type="submit" value="SUBMIT">
+        </div>
+    </form>
+</div>
